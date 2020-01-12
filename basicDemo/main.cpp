@@ -186,10 +186,28 @@ void processKeyboardInput(GLFWwindow *window)
 	}
     if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
 
-        glDeleteTextures(1, &textureID);
+        glDeleteTextures(1, &textureID2);
         createTexture (grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, true));
 	}
 
+    if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture (robertsImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f,3.0f)));
+	}
+
+    if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture(avgImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f)));
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture(toonImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f)));
+    }
+    
     if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
     {
         // Reloads the shader

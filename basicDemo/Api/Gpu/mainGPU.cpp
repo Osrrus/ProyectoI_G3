@@ -4,20 +4,20 @@
 #define IMAGE_HEIGHT 1024
 #define IMG_NEGATIVE 0
 #define IMG_GRAY_SCALE 1
+#define IMG_ROBERTS 2
+#define IMG_AVG 3
+#define IMG_TOON 4
 
-GPU::GPU():
-    viewDirection(0.0f, 0.0f, -1.0f),
-    position(0.0f,0.0f,1.0f),
-    UP(0.0f, 1.0f, 0.0f)
-{
+GPU::GPU(){
     
     bufferWidth =  IMAGE_WIDTH;
     bufferHeight = IMAGE_HEIGHT;
 
     shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/negative.frag"));
     shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/grayScale.frag"));
-
-    model = glm::mat4(1.0f);
+    shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/roberts.frag"));
+    shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/avg.frag"));
+    shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/toon.frag"));
 
     plane = objLoader("assets/Objects/plane.obj");
 
@@ -100,6 +100,119 @@ unsigned char* GPU::grayScaleImage( int width,  int height,  int channels, unsig
     return imageData;
 }
 
+unsigned char* GPU::robertsImage(int width,  int height,  int channels, unsigned char* data , glm::vec2 kernel){
+
+     unsigned int id;
+    createFrameBuffer(width,height);
+
+    if (data)
+    {
+        createTexture(id,width,height,channels,data);
+    }
+    else
+    {
+        std::cout << "Error Texture creation failed "<< std::endl;
+        glDeleteTextures(1, &id);
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER,frameBufferTexture);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glViewport(0, 0, width, height);
+
+    shaders[IMG_ROBERTS]->use();
+
+    shaders[IMG_ROBERTS]->setVec2("kernel",kernel);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,id);
+
+    plane->Draw();
+
+    unsigned char* imageData = (unsigned char*)malloc((int)(width * height * (channels)));
+    glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+
+    glDeleteTextures(1, &id);
+    glDeleteFramebuffers(1, &frameBufferTexture);
+
+    return imageData;
+
+}
+
+unsigned char* GPU::avgImage(int width,  int height,  int channels, unsigned char* data , glm::vec2 kernel){
+
+    unsigned int id;
+    createFrameBuffer(width,height);
+
+    if (data)
+    {
+        createTexture(id,width,height,channels,data);
+    }
+    else
+    {
+        std::cout << "Error Texture creation failed "<< std::endl;
+        glDeleteTextures(1, &id);
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER,frameBufferTexture);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glViewport(0, 0, width, height);
+
+    shaders[IMG_AVG]->use();
+
+    shaders[IMG_AVG]->setVec2("kernel",kernel);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,id);
+
+    plane->Draw();
+
+    unsigned char* imageData = (unsigned char*)malloc((int)(width * height * (channels)));
+    glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+
+    glDeleteTextures(1, &id);
+    glDeleteFramebuffers(1, &frameBufferTexture);
+
+    return imageData;
+
+}
+
+unsigned char* GPU::toonImage(int width,  int height,  int channels, unsigned char* data , glm::vec2 kernel){
+
+    unsigned int id;
+    createFrameBuffer(width,height);
+
+    if (data)
+    {
+        createTexture(id,width,height,channels,data);
+    }
+    else
+    {
+        std::cout << "Error Texture creation failed "<< std::endl;
+        glDeleteTextures(1, &id);
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER,frameBufferTexture);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glViewport(0, 0, width, height);
+
+    shaders[IMG_TOON]->use();
+
+    shaders[IMG_TOON]->setVec2("kernel",kernel);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,id);
+
+    plane->Draw();
+
+    unsigned char* imageData = (unsigned char*)malloc((int)(width * height * (channels)));
+    glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+
+    glDeleteTextures(1, &id);
+    glDeleteFramebuffers(1, &frameBufferTexture);
+
+    return imageData;
+}
+
 void GPU::createTexture(unsigned int &id , int width,  int height,  int channels , unsigned char* data){
 
     // Gets the texture channel format
@@ -130,12 +243,6 @@ void GPU::createTexture(unsigned int &id , int width,  int height,  int channels
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-}
-
-glm::mat4 GPU::getWorlToViewMatrix() const{
-
-	return glm::lookAt(position,position + viewDirection, UP);
-
 }
 
 bool GPU::createFrameBuffer( int width,  int height){

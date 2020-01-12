@@ -7,15 +7,6 @@ void initApipdi(){
 
     mainGpu = new GPU();
 
-    if(mainGpu){
-
-        //return true;
-
-    }else{
-
-        //return false;
-
-    }
 }
 
 unsigned char* negativeImage( int width,  int height,  int channels, unsigned char* data , bool GPU){
@@ -27,5 +18,24 @@ unsigned char* negativeImage( int width,  int height,  int channels, unsigned ch
 unsigned char* grayScaleImage(int width, int height, int channels, unsigned char* data, bool GPU) {
 
     return mainGpu->grayScaleImage(width, height, channels, data);
+
+}
+
+unsigned char* robertsImage(int width, int height, int channels, unsigned char* data, bool GPU , glm::vec2 kernel) {
+
+    return mainGpu->robertsImage(width, height, channels, data, kernel);
+
+}
+
+unsigned char* avgImage(int width, int height, int channels, unsigned char* data, bool GPU , glm::vec2 kernel) {
+
+    return mainGpu->avgImage(width, height, channels, data, kernel);
+
+}
+
+
+unsigned char* toonImage(int width, int height, int channels, unsigned char* data, bool GPU , glm::vec2 kernel) {
+
+    return mainGpu->toonImage(width, height, channels, data, kernel);
 
 }

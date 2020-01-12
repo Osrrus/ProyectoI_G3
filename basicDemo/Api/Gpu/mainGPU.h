@@ -20,11 +20,7 @@ class GPU
     private:
 
         std::vector<Shader*> shaders;
-        glm::mat4 model;
         Obj* plane;
-        const glm::vec3 UP;
-        const glm::vec3 position;
-        const glm::vec3 viewDirection;
         unsigned int frameBufferTexture,bufferTexture;
         unsigned int bufferWidth;
         unsigned int bufferHeight;
@@ -34,8 +30,10 @@ class GPU
         ~GPU();
         unsigned char* negativeImage(int, int, int, unsigned char*);
         unsigned char* grayScaleImage(int, int, int, unsigned char*);
+        unsigned char* robertsImage(int, int, int, unsigned char*, glm::vec2);
+        unsigned char* avgImage(int, int, int, unsigned char*, glm::vec2);
+        unsigned char* toonImage(int, int, int, unsigned char*, glm::vec2);
         void createTexture(unsigned int&, int, int, int, unsigned char*);
-        glm::mat4 getWorlToViewMatrix() const;
         bool createFrameBuffer(int , int);
 };
 
