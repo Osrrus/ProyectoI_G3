@@ -1,7 +1,6 @@
 #include "define.h"
 #include "components/obj.h"
 #include "components/loader.h"
-#include "components/camera.h"
 #include "Api/Apipdi.h"
 
 // Window current width
@@ -14,7 +13,6 @@ const char *windowTitle = "Basic Demo";
 GLFWwindow *window;
 
 // Camera object
-Camera *camera;
 bool pressLeft = false;
 
 // Shader object
@@ -30,8 +28,6 @@ unsigned char* textureData;
 
 std::vector<Obj*> objects;
 
-void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-void onMouseButton(GLFWwindow* window, int button, int action, int mods);
 void createTexture(unsigned char*);
 
 int renderType = 0;
@@ -155,7 +151,6 @@ bool init()
     initApipdi();
     loadTexture("assets/textures/test2.jpg");
     initGL();
-    camera = new Camera();
     // Loads the shader
     shader = new Shader("assets/shaders/basic.vert", "assets/shaders/basic.frag");
     // Loads all the geometry into the GPU
@@ -177,17 +172,12 @@ void processKeyboardInput(GLFWwindow *window)
         // Tells glfw to close the window as soon as possible
         glfwSetWindowShouldClose(window, true);
 
-    // Checks if the r key is pressed
-    // Camera move
     if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
 
-		//renderType = 1;
         glDeleteTextures(1, &textureID);
         createTexture(textureData);
 	}
     if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
-
-		//renderType = 2;
 
         glDeleteTextures(1, &textureID);
         createTexture (negativeImage(textureWidth, textureHeight, numberOfChannels, textureData, true));
@@ -196,7 +186,6 @@ void processKeyboardInput(GLFWwindow *window)
 	}
     if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
 
-		//renderType = 3;
         glDeleteTextures(1, &textureID);
         createTexture (grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, true));
 	}
@@ -221,15 +210,6 @@ void render()
     // Use the shader
     shader->use();
     // Binds the vertex array to be 
-
-	glm::mat4 model = glm::mat4(1.0f);
-    glm::mat4 view = camera->getWorlToViewMatrix();
-	glm::mat4 projection = glm::perspective(glm::radians(90.0f), (float)windowWidth / (float)windowHeight, 0.1f, 50.0f);
-
-	shader->setMat4("view", view);
-	shader->setMat4("projection", projection);
-	shader->setMat4("model", model);
-    shader->setInt("render",renderType);
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D,textureID);
@@ -296,30 +276,6 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
-
-void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
-
-	if (pressLeft) {
-		camera->mouseUpdate(glm::vec2(xpos, ypos));
-	}
-
-	TwMouseMotion(static_cast<int>(xpos), static_cast<int>(ypos));
-}
-
-void onMouseButton(GLFWwindow* window, int button, int action, int mods)
-{
-	auto a = action == GLFW_PRESS ? TW_MOUSE_PRESSED : TW_MOUSE_RELEASED;
-
-	if (a) {
-
-		pressLeft = true; 
-
-	}
-	else {
-		pressLeft = false;
-	}
-
-} 
 
 void createTexture(unsigned char* data) {
 

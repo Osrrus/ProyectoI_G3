@@ -21,7 +21,6 @@ class GPU
 
         std::vector<Shader*> shaders;
         glm::mat4 model;
-        glm::mat4 getProjection(unsigned int, unsigned int);
         Obj* plane;
         const glm::vec3 UP;
         const glm::vec3 position;
@@ -33,10 +32,10 @@ class GPU
     public:
         GPU();
         ~GPU();
-        unsigned char* negativeImage( int,  int,   int, unsigned char*);
-        unsigned char* grayScaleImage( int,  int,   int, unsigned char*);
-        void createTexture(unsigned int&,  int,  int,   int, unsigned char*);
+        unsigned char* negativeImage(int, int, int, unsigned char*);
+        unsigned char* grayScaleImage(int, int, int, unsigned char*);
+        void createTexture(unsigned int&, int, int, int, unsigned char*);
         glm::mat4 getWorlToViewMatrix() const;
-        bool createFrameBuffer( int ,  int );
+        bool createFrameBuffer(int , int);
 };
 

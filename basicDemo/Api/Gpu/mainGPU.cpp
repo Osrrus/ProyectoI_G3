@@ -30,11 +30,6 @@ GPU::~GPU()
     }
 }
 
-glm::mat4 GPU::getProjection(unsigned int width, unsigned int height){
-    
-    return glm::perspective(glm::radians(90.0f), (float)width / (float)height, 0.1f, 50.0f);
-}
-
 unsigned char* GPU::negativeImage(int width, int height, int channels, unsigned char* data){
 
     unsigned int id;
@@ -55,11 +50,6 @@ unsigned char* GPU::negativeImage(int width, int height, int channels, unsigned 
     glViewport(0, 0, width, height);
 
     shaders[IMG_NEGATIVE]->use();
-
-    shaders[IMG_NEGATIVE]->setMat4("view", getWorlToViewMatrix());
-	shaders[IMG_NEGATIVE]->setMat4("projection", getProjection(width,height));
-	shaders[IMG_NEGATIVE]->setMat4("model", model);
-
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D,id);
@@ -95,11 +85,6 @@ unsigned char* GPU::grayScaleImage( int width,  int height,  int channels, unsig
     glViewport(0, 0, width, height);
 
     shaders[IMG_GRAY_SCALE]->use();
-
-    shaders[IMG_GRAY_SCALE]->setMat4("view", getWorlToViewMatrix());
-	shaders[IMG_GRAY_SCALE]->setMat4("projection", getProjection(width,height));
-	shaders[IMG_GRAY_SCALE]->setMat4("model", model);
-
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D,id);
