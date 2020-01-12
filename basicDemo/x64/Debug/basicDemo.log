@@ -1,0 +1,15 @@
+﻿  mainGPU.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: '../define.h': No such file or directory
+  camera.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\camera.h(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'glm/glm.hpp': No such file or directory
+  loader.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\define.h(11,10): fatal error C1083: No se puede abrir el archivo incluir: 'glad/glad.h': No such file or directory
+  Obj.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\define.h(11,10): fatal error C1083: No se puede abrir el archivo incluir: 'glad/glad.h': No such file or directory
+  main.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\define.h(11,10): fatal error C1083: No se puede abrir el archivo incluir: 'glad/glad.h': No such file or directory
+  Shader.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Shader.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'glm/glm.hpp': No such file or directory
+  stb_image.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\stb_image.cpp(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'stb_image.h': No such file or directory
+  Generando código...

@@ -1,0 +1,22 @@
+﻿  mainGPU.cpp
+  camera.cpp
+  loader.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): warning C4473: "fscanf_s": no se pasaron suficientes argumentos para la cadena de formato
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : los marcadores de posición y sus parámetros esperan 2 argumentos variádicos, pero se proporcionaron 1
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : el argumento variádico 2 que falta es requerido por la cadena de formato '%s'
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : este argumento se utiliza como un tamaño de búfer
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(119,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(125,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(130,20): warning C4018: '<': no coinciden signed/unsigned
+  Obj.cpp
+  main.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(237,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(288,22): warning C4018: '<': no coinciden signed/unsigned
+  Shader.cpp
+  stb_image.cpp
+  glad.c
+  Generando código
+  Previous IPDB not found, fall back to full compilation.
+  All 680 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  basicDemo.vcxproj -> C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\Release\basicDemo.exe
