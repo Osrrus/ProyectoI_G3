@@ -128,12 +128,13 @@ void buildGeometry()
 void loadTexture(const char *path)
 {
 
+    glGenTextures(1, &textureID);
+
     stbi_set_flip_vertically_on_load(true);
 
     textureData = stbi_load(path, &textureWidth, &textureHeight, &numberOfChannels, 0);
 
     createTexture(textureData);
-
 
 }
 
@@ -149,7 +150,7 @@ bool init()
 
     // Initialize the opengl context
     initApipdi();
-    loadTexture("assets/textures/test2.jpg");
+    loadTexture("assets/textures/test1.jpg");
     initGL();
     // Loads the shader
     shader = new Shader("assets/shaders/basic.vert", "assets/shaders/basic.frag");
@@ -180,14 +181,15 @@ void processKeyboardInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture (negativeImage(textureWidth, textureHeight, numberOfChannels, textureData, true));
-
+        unsigned char * data = negativeImage(textureWidth, textureHeight, numberOfChannels, textureData, false);
+        createTexture (data);
+        free(data);
         
 	}
     if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID2);
-        createTexture (grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, true));
+        createTexture (grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, false));
 	}
 
     if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
@@ -205,7 +207,37 @@ void processKeyboardInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture(toonImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f)));
+        createTexture(toonImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture(medianImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture(lOfGuusImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture(blackWhiteImage(textureWidth, textureHeight, numberOfChannels, textureData, true));
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture(prewittImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS) {
+
+        glDeleteTextures(1, &textureID);
+        createTexture(sobelImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
     }
     
     if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
@@ -297,7 +329,7 @@ int main(int argc, char const *argv[])
 
 void createTexture(unsigned char* data) {
 
-    glGenTextures(1, &textureID);
+    //glGenTextures(1, &textureID);
 
     if (data)
     {
@@ -335,6 +367,6 @@ void createTexture(unsigned char* data) {
         glDeleteTextures(1, &textureID);
     }
     // We dont need the data texture anymore because is loaded on the GPU
-        //stbi_image_free(data);
+    //free(data);
 
 }
