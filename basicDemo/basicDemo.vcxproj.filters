@@ -51,6 +51,9 @@
     <ClCompile Include="Api\Gpu\mainGPU.cpp">
       <Filter>Api\archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="components\userinterface.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="Api\Cpu\mainCPU.h">
       <Filter>Api\encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="components\userInterface.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

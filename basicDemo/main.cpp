@@ -2,6 +2,7 @@
 #include "components/obj.h"
 #include "components/loader.h"
 #include "Api/Apipdi.h"
+#include "./components/userInterface.h"
 
 // Window current width
 unsigned int windowWidth = 800;
@@ -12,16 +13,15 @@ const char *windowTitle = "Basic Demo";
 // Window pointer
 GLFWwindow *window;
 
+CUserInterface *userInterFace;
 // Camera object
 bool pressLeft = false;
-
+string filter = "normal";
+ 
 // Shader object
 Shader *shader;
-unsigned int VBO;
-// Index (GPU) vertex array object
-unsigned int VAO;
 // Index (GPU) of the texture
-unsigned int textureID,textureID2;
+unsigned int textureID;
 bool textureIDUsing;
 
 unsigned char* textureData;
@@ -34,6 +34,9 @@ int renderType = 0;
 
 int textureWidth, textureHeight, numberOfChannels;
 
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void onMouseButton(GLFWwindow* window, int button, int action, int mods);
+
 /**
  * Handles the window resize
  * @param{GLFWwindow} window pointer
@@ -41,12 +44,55 @@ int textureWidth, textureHeight, numberOfChannels;
  * @param{int} new height of the window
  * */
 
+void updateUserInterface()
+{
+    if(userInterFace->getDeployType() != filter){
+
+        filter = userInterFace->getDeployType();
+        unsigned char* data;
+
+        if (filter == "normal") {
+
+            glDeleteTextures(1, &textureID);
+            createTexture(textureData);
+
+        }else if(filter == "blackWhite"){
+
+            glDeleteTextures(1, &textureID);
+            data = blackWhiteImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU);
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "negative"){
+
+            glDeleteTextures(1, &textureID);
+            data = negativeImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU);
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "grayScale"){
+
+            glDeleteTextures(1, &textureID);
+            data = grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU);
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }
+    }
+}
+
+
 void resize(GLFWwindow *window, int width, int height)
 {
     windowWidth = width;
     windowHeight = height;
     // Sets the OpenGL viewport size and position
     glViewport(0, 0, windowWidth, windowHeight);
+
+    userInterFace->reshape(width, height);
 }
 /**
  * Initialize the glfw library
@@ -77,8 +123,8 @@ bool initWindow()
 
     // Window resize callback
     glfwSetFramebufferSizeCallback(window, resize);
-    //glfwSetCursorPosCallback(window, mouse_callback);
-    //glfwSetMouseButtonCallback(window, onMouseButton);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetMouseButtonCallback(window, onMouseButton);
 
     return true;
 }
@@ -148,9 +194,12 @@ bool init()
     if (!initWindow() || !initGlad())
         return false;
 
+    TwInit(TW_OPENGL_CORE, NULL);
+    userInterFace->reshape(windowWidth, windowHeight);
     // Initialize the opengl context
     initApipdi();
     loadTexture("assets/textures/test2.jpg");
+    userInterFace = CUserInterface::Instance();
     // loadTexture("assets/textures/test1.jpg");
     initGL();
     // Loads the shader
@@ -302,9 +351,7 @@ void render()
     for(int i = 0; i < objects.size(); i++){
        objects[i]->Draw();
     }
-    
-    // Swap the buffer
-    glfwSwapBuffers(window);
+
 }
 /**
  * App main loop
@@ -316,11 +363,17 @@ void update()
     {
         // Checks for keyboard inputs
         processKeyboardInput(window);
-
+       
         // Renders everything
         render();
 
-        // Check and call events
+
+        TwDraw();
+
+        updateUserInterface();
+
+        glfwSwapBuffers(window);
+
         glfwPollEvents();
     }
 }
@@ -357,6 +410,8 @@ int main(int argc, char const *argv[])
     delete shader;
 
     // Stops the glfw program
+    TwTerminate();
+
     glfwTerminate();
 
     return 0;
@@ -404,4 +459,34 @@ void createTexture(unsigned char* data) {
     // We dont need the data texture anymore because is loaded on the GPU
     //free(data);
 
+}
+
+void beginLoad(string path) {
+	string aux = path;
+	string extension = aux.erase(0, aux.find(".") + 1);
+	//Caso archivo OFF:
+
+    if (extension == "jpg" || extension == "JPG") {
+
+        stbi_image_free(textureData);
+        glDeleteTextures(1,&textureID);
+        const char* cstr = path.c_str();
+        //path.copy(aux2, path.size()+1);
+        loadTexture(cstr);
+        //delete [] cstr;
+    }
+
+}
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+
+	TwMouseMotion(static_cast<int>(xpos), static_cast<int>(ypos));
+}
+
+void onMouseButton(GLFWwindow* window, int button, int action, int mods)
+{
+	auto a = action == GLFW_PRESS ? TW_MOUSE_PRESSED : TW_MOUSE_RELEASED;
+	auto b = TW_MOUSE_LEFT;
+    
+    TwMouseButton(a, b);
 }

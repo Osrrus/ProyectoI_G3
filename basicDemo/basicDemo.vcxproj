@@ -132,6 +132,7 @@
     <ClCompile Include="components\camera.cpp" />
     <ClCompile Include="components\loader.cpp" />
     <ClCompile Include="components\Obj.cpp" />
+    <ClCompile Include="components\userinterface.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="components\camera.h" />
     <ClInclude Include="components\loader.h" />
     <ClInclude Include="components\Obj.h" />
+    <ClInclude Include="components\userInterface.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="Shader.h" />
   </ItemGroup>
