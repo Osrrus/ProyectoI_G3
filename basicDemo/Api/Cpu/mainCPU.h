@@ -168,15 +168,14 @@ std::vector<float> LoGKernel(float x, float y, float sigma)
 	maxY = (y / 2);
 
 	//calculate
-	int k = 0;
+
 	for (int i = maxX; i >= minX; i--)
 	{
 		for (int j = maxY; j >= minY; j--)
 		{
-			kernelLoG[k] = LoG(i, j, sigma);
+			kernelLoG.push_back(LoG(i, j, sigma));
 			//cout << kernelLoG[k] << ' ';
 
-			k++;
 		}
 	}
 
