@@ -33,6 +33,7 @@ GPU::GPU(){
 
     glGenTextures(1, &bufferTexture);
     glGenTextures(1, &textureIdKernel);
+
 }
 
 GPU::~GPU()
@@ -448,6 +449,8 @@ void GPU::createTexture(int width,  int height,  int channels , unsigned char* d
 }
 
 bool GPU::createFrameBuffer( int width,  int height){
+
+    
 
     glGenFramebuffers(1,&frameBufferTexture);
     glBindFramebuffer(GL_FRAMEBUFFER,frameBufferTexture);

@@ -150,7 +150,8 @@ bool init()
 
     // Initialize the opengl context
     initApipdi();
-    loadTexture("assets/textures/test1.jpg");
+    loadTexture("assets/textures/test2.jpg");
+    // loadTexture("assets/textures/test1.jpg");
     initGL();
     // Loads the shader
     shader = new Shader("assets/shaders/basic.vert", "assets/shaders/basic.frag");
@@ -183,61 +184,95 @@ void processKeyboardInput(GLFWwindow *window)
         glDeleteTextures(1, &textureID);
         unsigned char * data = negativeImage(textureWidth, textureHeight, numberOfChannels, textureData, false);
         createTexture (data);
-        free(data);
+        stbi_image_free(data);
+        getTime();
         
 	}
     if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
 
-        glDeleteTextures(1, &textureID2);
-        createTexture (grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, false));
+        glDeleteTextures(1, &textureID);
+        unsigned char* data = grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, true);
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
 	}
 
     if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture (robertsImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f,3.0f)));
+        unsigned char* data = robertsImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f,3.0f));
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
+
 	}
 
     if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS) {
 
+        
         glDeleteTextures(1, &textureID);
-        createTexture(avgImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f)));
+        unsigned char* data = avgImage(textureWidth, textureHeight, numberOfChannels, textureData, false, glm::vec2(3.0f, 3.0f));
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
+
     }
 
     if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture(toonImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+        unsigned char* data = toonImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(5.0f, 5.0f));
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
+
     }
 
     if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture(medianImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+        unsigned char* data = medianImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
+
     }
 
     if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture(lOfGuusImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+        unsigned char* data = lOfGuusImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
+
     }
 
     if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture(blackWhiteImage(textureWidth, textureHeight, numberOfChannels, textureData, true));
+        unsigned char* data = blackWhiteImage(textureWidth, textureHeight, numberOfChannels, textureData, false);
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
     }
 
     if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture(prewittImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+        unsigned char* data = prewittImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
     }
 
     if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        createTexture(sobelImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(7.0f, 7.0f)));
+        unsigned char* data = sobelImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
+        getTime();
+        createTexture(data);
+        stbi_image_free(data);
     }
     
     if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)

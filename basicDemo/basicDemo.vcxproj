@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Apipdi.h" />
+    <ClInclude Include="Api\Cpu\mainCPU.h" />
     <ClInclude Include="Api\Gpu\mainGPU.h" />
     <ClInclude Include="components\camera.h" />
     <ClInclude Include="components\loader.h" />

@@ -1,11 +1,47 @@
 ﻿  main.cpp
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(24,25): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(49,29): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(267,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(318,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(19,68): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(14,6): warning C4101: 'offset': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(13,20): warning C4101: 'pixelOffset': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(11,15): warning C4101: 'gd': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(11,18): warning C4101: 'bd': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(11,12): warning C4101: 'rd': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(33,15): warning C4101: 'b': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(33,12): warning C4101: 'g': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(62,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(63,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(64,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(68,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(69,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(70,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(88,12): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(89,15): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(90,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(91,14): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(101,15): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(103,16): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(115,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(116,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(117,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(83,12): warning C4101: 'pivot': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(12,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(19,34): warning C4244: '=': conversión de '_Rep' a 'long'; posible pérdida de datos
+          with
+          [
+              _Rep=__int64
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(302,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(353,22): warning C4018: '<': no coinciden signed/unsigned
   Generando código
-  5 of 696 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    9 functions had inline decision re-evaluated but remain unchanged
+  7 of 719 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    12 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   basicDemo.vcxproj -> C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\Release\basicDemo.exe

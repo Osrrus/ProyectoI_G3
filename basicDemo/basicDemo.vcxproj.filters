@@ -74,6 +74,9 @@
     <ClInclude Include="Api\Gpu\mainGPU.h">
       <Filter>Api\encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Api\Cpu\mainCPU.h">
+      <Filter>Api\encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\basic.frag">

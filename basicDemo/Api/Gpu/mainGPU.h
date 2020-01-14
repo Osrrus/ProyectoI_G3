@@ -26,6 +26,7 @@ class GPU
         unsigned int bufferWidth;
         unsigned int bufferHeight;
         unsigned int textureId,textureIdKernel;
+        bool bufferinit;
 
     public:
 
