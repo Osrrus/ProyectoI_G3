@@ -95,8 +95,16 @@ unsigned char* medianImage(int width, int height, int channels, unsigned char* d
 
 unsigned char* lOfGuusImage(int width, int height, int channels, unsigned char* data, bool GPU , glm::vec2 kernel) {
 
-    return mainGpu->lOfGuusImage(width, height, channels, data, kernel);
+    setTime();
+    
+    if (GPU) {
 
+        return mainGpu->lOfGuusImage(width, height, channels, data, kernel);
+
+    }
+    else{
+        return lOfGuusImageCPU(width, height, channels, data, kernel);
+    }
 }
 
 unsigned char* blackWhiteImage(int width, int height, int channels, unsigned char* data, bool GPU) {

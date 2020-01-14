@@ -241,7 +241,7 @@ void processKeyboardInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS) {
 
         glDeleteTextures(1, &textureID);
-        unsigned char* data = lOfGuusImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
+        unsigned char* data = lOfGuusImage(textureWidth, textureHeight, numberOfChannels, textureData, false, glm::vec2(3.0f, 3.0f));
         getTime();
         createTexture(data);
         stbi_image_free(data);
