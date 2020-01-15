@@ -520,4 +520,116 @@ unsigned char* robertsImageCPU(int width, int height, int channels, unsigned cha
 	return imageData;
 }
 
+unsigned char* medianImageCPU(int width, int height, int channels, unsigned char* data, glm::vec2 kernel)
+{
+	unsigned char* imageData = (unsigned char*)malloc((int)(width * height * (channels)));
+	glm::vec3 sum = glm::vec3(0.0f);
+	std::vector<glm::vec3> colors;
+	//Kernel
+	int middleR, middleC;
+	float top, bottom, left, right;
 
+	initKernelValues(kernel, middleR, middleC, top, bottom, left, right);
+
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			int it = (width * i + j) * channels;
+			glm::vec2 pivot = glm::vec2(i, j);
+			//colors in vector
+			for (int k = pivot.x + top; k <= pivot.x + bottom; k++)
+			{
+				for (int l = pivot.y + left; l <= pivot.y + right; l++)
+				{
+					if (k > -1 && l > -1 && k < height && l < width)
+					{
+						int it2 = (width * k + l) * channels;
+						colors.push_back(glm::vec3((int)data[it2 + 0], (int)data[it2 + 1], (int)data[it2 + 2]));
+					}
+				}
+			}
+			// sort colors
+			int n = colors.size();
+			int newn;
+			do {
+				newn = 0;
+				for (int j = 0; j < n - 1; j++) {
+					if (colors[j].r > colors[j + 1].r
+						&& colors[j].b > colors[j + 1].b
+						&& colors[j].g > colors[j + 1].g)
+					{
+						glm::vec3 temp = colors[j];
+						colors[j] = colors[j + 1];
+						colors[j + 1] = temp;
+						newn = j;
+					}
+				}
+				n = newn;
+
+			} while (n > 0);
+
+			//La mediana es el n�mero que est� 
+			//en medio del conjunto ya ordenado
+			int medio = int(ceil(colors.size() / 2.0));
+
+			
+			imageData[it + 0] = colors[medio].x;
+			imageData[it + 1] = colors[medio].y;
+			imageData[it + 2] = colors[medio].z;
+			colors.clear();
+		}
+	}
+
+	return imageData;
+}
+
+unsigned char* toonImageCPU(int width, int height, int channels, unsigned char* data, glm::vec2 kernel)
+{
+	unsigned char* imageData = (unsigned char*)malloc((int)(width * height * (channels)));
+	unsigned char* edges = (unsigned char*)malloc((int)(width * height * (channels)));
+	edges = robertsImageCPU(width,height,channels,data,kernel);
+
+	glm::vec3 sum = glm::vec3(0.0f);
+	std::vector<glm::vec3> colors;
+	//Kernel
+	int middleR, middleC;
+	float top, bottom, left, right;
+
+	initKernelValues(kernel, middleR, middleC, top, bottom, left, right);
+	glm::vec3 result(0.0f);
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			//quantization colors
+			int it = (width * i + j) * 3;
+			result.x = (int)data[it + 0];
+			result.y = (int)data[it + 1];
+			result.z = (int)data[it + 2];
+			
+			glm::vec3 stepSize = glm::vec3(10.0);
+			result *= stepSize;
+
+			result = round(result);
+
+			result /= stepSize;
+			result.x =result.x - edges[it + 0];
+			result.y =result.y - edges[it + 1];
+			result.z =result.z - edges[it + 2];
+
+			result.x = result.x > 255 ? 255 : result.x;
+			result.y = result.y > 255 ? 255 : result.y;
+			result.z = result.z > 255 ? 255 : result.z;
+
+			result.x = result.x < 0 ? 0 : result.x;
+			result.y = result.y < 0 ? 0 : result.y;
+			result.z = result.z < 0 ? 0 : result.z;
+
+			imageData[it + 0] = result.x;
+			imageData[it + 1] = result.y;
+			imageData[it + 2] = result.z;
+		}
+	}
+	return imageData;
+}

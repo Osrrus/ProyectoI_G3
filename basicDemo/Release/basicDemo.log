@@ -91,17 +91,72 @@ C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(476,24): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(477,24): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(478,24): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(541,15): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(543,16): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(577,37): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(578,37): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(579,37): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(607,31): warning C4244: '=': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(608,31): warning C4244: '=': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(609,31): warning C4244: '=': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(629,30): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(630,30): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(631,30): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(17,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(24,34): warning C4244: '=': conversión de '_Rep' a 'long'; posible pérdida de datos
           with
           [
               _Rep=__int64
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(422,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(477,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(323,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(383,22): warning C4018: '<': no coinciden signed/unsigned
   Generando código
-  8 of 903 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+  10 of 919 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+    9 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   basicDemo.vcxproj -> C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\Release\basicDemo.exe

@@ -253,6 +253,7 @@ void loadTexture(const char *path)
     userInterFace->uniqueColors = uniqueColors(textureWidth,textureHeight,numberOfChannels,textureData);
     createTexture(textureData);
 
+    // renderHistograma(textureWidth,textureHeight,textureData);
 }
 
 /**
@@ -293,107 +294,7 @@ void processKeyboardInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         // Tells glfw to close the window as soon as possible
         glfwSetWindowShouldClose(window, true);
-
-    if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        createTexture(textureData);
-	}
-    if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char * data = negativeImage(textureWidth, textureHeight, numberOfChannels, textureData, false);
-        createTexture (data);
-        stbi_image_free(data);
-        getTime();
-        
-	}
-    if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, true);
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-	}
-
-    if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = robertsImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f,3.0f));
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-
-	}
-
-    if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS) {
-
-        
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = avgImage(textureWidth, textureHeight, numberOfChannels, textureData, false, glm::vec2(3.0f, 3.0f));
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = toonImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(5.0f, 5.0f));
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = medianImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = lOfGuusImage(textureWidth, textureHeight, numberOfChannels, textureData, false, glm::vec2(3.0f, 3.0f));
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = blackWhiteImage(textureWidth, textureHeight, numberOfChannels, textureData, false);
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = prewittImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS) {
-
-        glDeleteTextures(1, &textureID);
-        unsigned char* data = sobelImage(textureWidth, textureHeight, numberOfChannels, textureData, true, glm::vec2(3.0f, 3.0f));
-        getTime();
-        createTexture(data);
-        stbi_image_free(data);
-    }
+    
     
     if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
     {
@@ -409,8 +310,8 @@ void render()
 {
     // Clears the color and depth buffers from the frame buffer
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glViewport(0, 0, windowWidth, windowHeight);
+    
+    //glViewport(0, 0, windowWidth, windowHeight);
     /** Draws code goes here **/
     // Use the shader
     shader->use();
@@ -433,12 +334,17 @@ void update()
     while (!glfwWindowShouldClose(window))
     {
         // Checks for keyboard inputs
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
         processKeyboardInput(window);
        
+        // glViewport(0, 0, 200, 200);
+        // drawHistograma(1);
         // Renders everything
+        glViewport(0, 0, windowWidth, windowHeight);
         render();
 
-
+        
         TwDraw();
 
         updateUserInterface();

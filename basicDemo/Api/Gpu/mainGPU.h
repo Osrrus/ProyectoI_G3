@@ -27,6 +27,9 @@ class GPU
         unsigned int bufferHeight;
         unsigned int textureId,textureIdKernel;
         bool bufferinit;
+        //int histoRed[256],histoGreen[256],histoBlue[256];
+        unsigned int textureHistoR,textureHistoG,textureHistoB;
+        GLuint vao,vbo,num_input_data;
 
     public:
 
@@ -48,5 +51,7 @@ class GPU
         bool createFrameBuffer(int , int);
         void LoGKernel(float x, float y, float sigma);
         float LoG(float x, float y, float sigma);
+        void renderHistograma(int width, int height, unsigned char* data);
+        void drawHistograma(int);
 };
 

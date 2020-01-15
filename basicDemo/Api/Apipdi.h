@@ -99,14 +99,29 @@ unsigned char* avgImage(int width, int height, int channels, unsigned char* data
 unsigned char* toonImage(int width, int height, int channels, unsigned char* data, bool GPU , glm::vec2 kernel) {
 
     setTime();
-    return mainGpu->toonImage(width, height, channels, data, kernel);
+    if(GPU){
+        return mainGpu->toonImage(width, height, channels, data, kernel);
+
+    }else{
+
+        return toonImageCPU(width, height, channels, data, kernel);
+    }
+
 
 }
 
 unsigned char* medianImage(int width, int height, int channels, unsigned char* data, bool GPU , glm::vec2 kernel) {
 
     setTime();
-    return mainGpu->medianImage(width, height, channels, data, kernel);
+    if (GPU) {
+
+        return mainGpu->medianImage(width, height, channels, data, kernel);
+
+    }
+    else{
+
+        return medianImageCPU(width, height, channels, data, kernel);
+    }
 
 }
 
@@ -186,4 +201,14 @@ void saveImage(const char * path, int width, int height){
     glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, imageData);
     stbi_flip_vertically_on_write(true);
     stbi_write_jpg(path, width, height, 3, imageData, width * 3);
+}
+
+void renderHistograma(int width, int height, unsigned char * data){
+
+    mainGpu->renderHistograma(width,height,data);
+}
+
+void drawHistograma(int color){
+
+    mainGpu->drawHistograma(color);
 }

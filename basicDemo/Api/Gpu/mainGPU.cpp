@@ -12,6 +12,8 @@
 #define IMG_BLACKWHITE 7
 #define IMG_PREWITT 8
 #define IMG_SOBEL 9
+#define HISTOGRAMA 10
+#define DRAW_HISTOGRAMA 11
 #define PI 3.1416
 
 GPU::GPU(){
@@ -29,6 +31,8 @@ GPU::GPU(){
     shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/baw.frag"));
     shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/prewitt.frag"));
     shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/sobel.frag"));
+    shaders.push_back(new Shader("Api/Gpu/shader/histo.vert","Api/Gpu/shader/histo.frag"));
+    shaders.push_back(new Shader("Api/Gpu/shader/basic.vert","Api/Gpu/shader/basic.frag"));
 
     plane = objLoader("assets/Objects/plane.obj");
 
@@ -422,7 +426,7 @@ unsigned char* GPU::sobelImage(int width,  int height,  int channels, unsigned c
 void GPU::createTexture(int width,  int height,  int channels , unsigned char* data){
 
     // Gets the texture channel format
-    //glGenTextures(1, &textureId);
+    glGenTextures(1, &textureId);
     GLenum format;
     switch (channels)
     {
@@ -536,4 +540,124 @@ float GPU::LoG(float x, float y, float sigma)
 	float sigma2 = ((x * x + y * y) / (2 * sigma * sigma));
 	float expon = exp(-sigma2);
 	return sigma4 * (1 - sigma2) * expon;
+}
+
+void GPU::renderHistograma(int width, int height, unsigned char* data){
+    
+    /*for(int i = 0; i <256; i++){
+
+        histoBlue[i] = 0;
+        histoGreen[i] = 0;
+        histoRed[i] = 0;
+
+    }
+    */
+   //std::vector<float>histoRed;
+
+    int aux = 0; 
+    float histoRed [1920*1080];
+    for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			int it = (width * i + j)*3;
+
+            //aux = (int)data[it];
+            histoRed[aux] = (int)data[it];
+            aux++;
+            // aux = (int)data[it+1];
+            // histoGreen[aux]++;
+
+            // aux = (int)data[it+2];
+            // histoBlue[aux]++;
+
+		}
+	}
+
+    glDeleteVertexArrays(1,&vao);
+    glDeleteFramebuffers(1,&vbo);
+
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
+
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+    num_input_data = width * height;
+
+    glBufferData(GL_ARRAY_BUFFER, num_input_data * sizeof(float) * 3, histoRed, GL_STATIC_DRAW);
+
+    shaders[HISTOGRAMA]->use();
+
+    GLint posAttrib = glGetAttribLocation(shaders[HISTOGRAMA]->ID, "inPosition");
+    glEnableVertexAttribArray(posAttrib);
+    glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
+
+    GLuint tex;
+    GLuint fbo;
+
+    glGenFramebuffers(1, &fbo);
+    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+
+    glGenTextures(1, &tex);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_R32F, 256, 1, 0, GL_RED, GL_FLOAT, NULL);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    // glTexStorage2D(GL_TEXTURE_2D, 1, GL_R32F, 256, 1);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, tex, 0);
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glBlendEquation(GL_FUNC_ADD);
+    glBlendFunc(GL_ONE, GL_ONE);
+    glEnable(GL_BLEND);
+
+    glViewport(0, 0, 256, 1);
+
+    glDrawArrays(GL_POINTS, 0, num_input_data);
+
+    unsigned char* textureHisto = (unsigned char*)malloc((int)256);;
+
+    glReadPixels(0, 0, 256, 1, GL_RED, GL_UNSIGNED_BYTE, textureHisto);
+
+    glGenTextures(1, &textureHistoR);
+
+    GLenum format = GL_RED;
+    // Binds the texture
+    glBindTexture(GL_TEXTURE_2D, textureHistoR);
+    // Creates the texture
+    glTexImage2D(GL_TEXTURE_2D, 0, format, 256, 1, 0, format, GL_UNSIGNED_BYTE, textureHisto);
+    // Creates the texture mipmaps
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    // Set the filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+}
+
+void GPU::drawHistograma(int color){
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
+    shaders[DRAW_HISTOGRAMA]->use();
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,textureHistoR);
+
+    plane->Draw();
 }
