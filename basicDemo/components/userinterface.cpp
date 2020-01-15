@@ -3,8 +3,11 @@
 #include <Commdlg.h>
 
 void TW_CALL CallbackLoad(void *clientData);
+void TW_CALL CallbackSave(void *clientData);
+
 string loadPath();
 void beginLoad(string path);
+void beginSave();
 
 CUserInterface * CUserInterface::mInterface = NULL;
 
@@ -25,33 +28,35 @@ CUserInterface::CUserInterface()
 	TwDefine("Menu resizable = true");
 	TwDefine("Menu fontresizable = true");
 	TwDefine("Menu movable = false");
-	//TwDefine("Menu position = '20 20'");
 	TwDefine("Menu size = '220 320'");
 	TwDefine("Menu visible = true");
-	
+	kernelX = kernelY = 3;
 	GPU = false;
+
+	TwAddSeparator(mUserInterface, "", NULL);
+	TwAddVarRW(mUserInterface, "Width", TW_TYPE_INT32, &width, "readonly=true");
+	TwAddVarRW(mUserInterface, "Height", TW_TYPE_INT32, &height, "readonly=true");
+	TwAddVarRW(mUserInterface, "Bits per pixel", TW_TYPE_INT32, &pixels, "readonly=true");
+	TwAddVarRW(mUserInterface, "Unique Colors", TW_TYPE_INT32, &uniqueColors, "readonly=true");
+
 	TwAddSeparator(mUserInterface, "", NULL);
 	TwAddButton(mUserInterface, "Load", CallbackLoad, NULL, NULL);
 
+	TwAddSeparator(mUserInterface, "", NULL);
+	TwAddButton(mUserInterface, "Save", CallbackLoad, NULL, NULL);
+
 	TwEnumVal DeployType[] = { {NORMAL, "Normal"},{ NEGATIVE, "Negative" },{ GRAY_SCALE, "Gray Scale" },{ BLACK_WITHE, "Black And White" },
-    { GAUS, "Laplace Gaus" },{ AVG, "Averague" } };
-	TwType DeployTwType = TwDefineEnum("Fliter", DeployType, 6);
+    { GAUS, "Laplace Gaus" },{ AVG, "Averague" },{SOBEL, "Sobel"},{PREWITT, "Prewitt"},{ROBERTS, "Roberts"},{TOON, "Toon"},{MEDIANA, "Mediana"}};
+	TwType DeployTwType = TwDefineEnum("Fliter", DeployType, 11);
 
 	TwAddVarRW(mUserInterface, "Deploy", DeployTwType, &m_currentDeploy, NULL);
 
 	TwAddSeparator(mUserInterface, "", NULL);
 	TwAddVarRW(mUserInterface, "Hardware Acceleration", TW_TYPE_BOOLCPP, &GPU, "");
 
-	/*
-	TwAddVarRW(mUserInterface, "Translation X", TW_TYPE_FLOAT, &mModelTranslation[0], " group='Model' step=0.01 ");
-	TwAddVarRW(mUserInterface, "Translation Y", TW_TYPE_FLOAT, &mModelTranslation[1], " group='Model' step=0.01 ");
-	TwAddVarRW(mUserInterface, "Translation Z", TW_TYPE_FLOAT, &mModelTranslation[2], " group='Model' step=0.01 ");
-
-	TwAddSeparator(mUserInterface, "", "group='Model'");
-	TwAddVarRW(mUserInterface, "Scale X", TW_TYPE_FLOAT, &mModelScale[0], " group='Model' step=0.01 ");
-	TwAddVarRW(mUserInterface, "Scale Y", TW_TYPE_FLOAT, &mModelScale[1], " group='Model' step=0.01 ");
-	TwAddVarRW(mUserInterface, "Scale Z", TW_TYPE_FLOAT, &mModelScale[2], " group='Model' step=0.01 ");
-	TwAddVarRW(mUserInterface, "Scale All", TW_TYPE_FLOAT, &mScaleAll, " group='Model' step=0.01 ");*/
+	TwAddSeparator(mUserInterface, "", NULL);
+	TwAddVarRW(mUserInterface, "Kernel Size x", TW_TYPE_INT32, &kernelX, "min=1 max=7");
+	TwAddVarRW(mUserInterface, "Kernel Size y", TW_TYPE_INT32, &kernelY, "min=1 max=7");
 
 }
 
@@ -60,6 +65,12 @@ void TW_CALL CallbackLoad(void *clientData)
 	string path = loadPath();
 	if (path != "")
 		beginLoad(path);
+}
+
+void TW_CALL CallbackSave(void *clientData){
+
+	beginSave();
+	
 }
 
 CUserInterface::~CUserInterface()
@@ -108,6 +119,11 @@ string CUserInterface::getDeployType() {
 	if (m_currentDeploy == BLACK_WITHE) return "blackWhite";
 	if (m_currentDeploy == GAUS) return "gaus";
 	if (m_currentDeploy == AVG) return "avg";
+	if (m_currentDeploy == SOBEL) return "sobel";
+	if (m_currentDeploy == PREWITT) return "prewitt";
+	if (m_currentDeploy == ROBERTS) return "roberts";
+	if (m_currentDeploy == TOON) return "toon";
+	if (m_currentDeploy == MEDIANA) return "mediana";
     
 	return NULL;
 }

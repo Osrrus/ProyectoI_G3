@@ -44,7 +44,9 @@ class GPU
         unsigned char* prewittImage(int, int , int , unsigned char*, glm::vec2);
         void createTexture(int, int, int, unsigned char*);
         void createTexture1D();
-        void fillVectorOfKernell();
+        void resetKernet();
         bool createFrameBuffer(int , int);
+        void LoGKernel(float x, float y, float sigma);
+        float LoG(float x, float y, float sigma);
 };
 

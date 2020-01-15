@@ -147,6 +147,7 @@
     <ClInclude Include="components\Obj.h" />
     <ClInclude Include="components\userInterface.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="include\stb_image_write.h" />
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>

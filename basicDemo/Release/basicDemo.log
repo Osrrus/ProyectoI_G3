@@ -1,78 +1,125 @@
-﻿  main.cpp
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(32,71): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(15,6): warning C4101: 'offset': variable local sin referencia
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(14,20): warning C4101: 'pixelOffset': variable local sin referencia
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(12,15): warning C4101: 'gd': variable local sin referencia
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(12,18): warning C4101: 'bd': variable local sin referencia
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(12,12): warning C4101: 'rd': variable local sin referencia
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(44,15): warning C4101: 'b': variable local sin referencia
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(44,12): warning C4101: 'g': variable local sin referencia
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(73,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(74,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(75,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(79,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(80,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(81,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(94,8): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(95,29): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(96,9): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(97,28): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(121,15): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+﻿  mainGPU.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(509,12): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(511,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(513,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(515,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(517,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(525,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(525,26): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(535,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  Obj.cpp
+  loader.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): warning C4473: "fscanf_s": no se pasaron suficientes argumentos para la cadena de formato
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : los marcadores de posición y sus parámetros esperan 2 argumentos variádicos, pero se proporcionaron 1
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : el argumento variádico 2 que falta es requerido por la cadena de formato '%s'
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : este argumento se utiliza como un tamaño de búfer
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(119,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(125,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(130,20): warning C4018: '<': no coinciden signed/unsigned
+  userinterface.cpp
+  main.cpp
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(66,65): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(123,16): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(48,6): warning C4101: 'offset': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(47,20): warning C4101: 'pixelOffset': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(45,15): warning C4101: 'gd': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(45,18): warning C4101: 'bd': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(45,12): warning C4101: 'rd': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(78,15): warning C4101: 'b': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(78,12): warning C4101: 'g': variable local sin referencia
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(107,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(108,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(109,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(113,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(114,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(115,23): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(128,8): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(129,29): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(130,9): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(131,28): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(154,15): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(135,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(136,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(137,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(148,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(162,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(164,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(166,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(168,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(176,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(176,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(207,15): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(156,16): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(209,16): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(168,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(169,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(170,40): warning C4244: '=': conversión de 'double' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(181,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(194,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(196,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(198,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(200,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(207,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(207,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(241,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(243,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(272,27): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(222,27): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(273,27): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(223,27): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(274,27): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(224,27): warning C4244: '=': conversión de 'T' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(290,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(292,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(294,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(296,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(320,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(322,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(324,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(326,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(349,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(351,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(353,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(355,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(361,22): warning C4244: 'argumento': conversión de 'int' a 'const _Ty'; posible pérdida de datos
           with
           [
-              T=float
+              _Ty=float
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(12,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(19,34): warning C4244: '=': conversión de '_Rep' a 'long'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(372,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(374,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(376,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(378,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(384,22): warning C4244: 'argumento': conversión de 'int' a 'const _Ty'; posible pérdida de datos
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(399,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(422,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(457,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(459,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(476,24): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(477,24): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(478,24): warning C4244: '=': conversión de 'float' a 'unsigned char'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(17,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apipdi.h(24,34): warning C4244: '=': conversión de '_Rep' a 'long'; posible pérdida de datos
           with
           [
               _Rep=__int64
           ]
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(351,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(406,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(422,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(477,22): warning C4018: '<': no coinciden signed/unsigned
   Generando código
-  2 of 774 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB not found, fall back to full compilation.
+  All 885 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Generación de código finalizada
   basicDemo.vcxproj -> C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\Release\basicDemo.exe

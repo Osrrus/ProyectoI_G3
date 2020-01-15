@@ -9,7 +9,7 @@ unsigned int windowWidth = 800;
 // Window current height
 unsigned int windowHeight = 600;
 // Window title
-const char *windowTitle = "Basic Demo";
+const char *windowTitle = "PDI API";
 // Window pointer
 GLFWwindow *window;
 
@@ -34,6 +34,8 @@ int renderType = 0;
 
 int textureWidth, textureHeight, numberOfChannels;
 
+bool GPUActive = false;
+
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void onMouseButton(GLFWwindow* window, int button, int action, int mods);
 
@@ -46,9 +48,10 @@ void onMouseButton(GLFWwindow* window, int button, int action, int mods);
 
 void updateUserInterface()
 {
-    if(userInterFace->getDeployType() != filter){
+    if(userInterFace->getDeployType() != filter || GPUActive != userInterFace->GPU){
 
         filter = userInterFace->getDeployType();
+        GPUActive = userInterFace->GPU;
         unsigned char* data;
 
         if (filter == "normal") {
@@ -76,6 +79,70 @@ void updateUserInterface()
 
             glDeleteTextures(1, &textureID);
             data = grayScaleImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU);
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "sobel"){
+
+            glDeleteTextures(1, &textureID);
+            data = sobelImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "gaus"){
+
+            glDeleteTextures(1, &textureID);
+            data = lOfGuusImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "avg"){
+
+            glDeleteTextures(1, &textureID);
+            data = avgImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "sobel"){
+
+            glDeleteTextures(1, &textureID);
+            data = sobelImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "prewitt"){
+
+            glDeleteTextures(1, &textureID);
+            data = prewittImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "roberts"){
+
+            glDeleteTextures(1, &textureID);
+            data = robertsImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "toon"){
+
+            glDeleteTextures(1, &textureID);
+            data = toonImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
+            createTexture(data);
+            stbi_image_free(data);
+            getTime();
+
+        }else if(filter == "mediana"){
+
+            glDeleteTextures(1, &textureID);
+            data = medianImage(textureWidth, textureHeight, numberOfChannels, textureData, userInterFace->GPU, glm::vec2(userInterFace->kernelX,userInterFace->kernelY));
             createTexture(data);
             stbi_image_free(data);
             getTime();
@@ -180,6 +247,10 @@ void loadTexture(const char *path)
 
     textureData = stbi_load(path, &textureWidth, &textureHeight, &numberOfChannels, 0);
 
+    userInterFace->width = textureWidth;
+    userInterFace->height = textureHeight;
+    userInterFace->pixels = 8*numberOfChannels;
+    userInterFace->uniqueColors = uniqueColors(textureWidth,textureHeight,numberOfChannels,textureData);
     createTexture(textureData);
 
 }
@@ -195,11 +266,11 @@ bool init()
         return false;
 
     TwInit(TW_OPENGL_CORE, NULL);
+    userInterFace = CUserInterface::Instance();
     userInterFace->reshape(windowWidth, windowHeight);
     // Initialize the opengl context
     initApipdi();
     loadTexture("assets/textures/test2.jpg");
-    userInterFace = CUserInterface::Instance();
     // loadTexture("assets/textures/test1.jpg");
     initGL();
     // Loads the shader
@@ -476,6 +547,12 @@ void beginLoad(string path) {
         //delete [] cstr;
     }
 
+}
+
+void beginSave(){
+
+    saveImage("Image.jpg",textureWidth,textureWidth);
+    
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {

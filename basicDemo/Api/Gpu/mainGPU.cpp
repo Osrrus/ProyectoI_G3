@@ -12,6 +12,7 @@
 #define IMG_BLACKWHITE 7
 #define IMG_PREWITT 8
 #define IMG_SOBEL 9
+#define PI 3.1416
 
 GPU::GPU(){
     
@@ -313,7 +314,7 @@ unsigned char* GPU::lOfGuusImage(int width,  int height,  int channels, unsigned
         glDeleteTextures(1, &textureId);
     }
 
-    fillVectorOfKernell();
+    LoGKernel(kernel.x,kernel.y,1.0);
     createTexture1D();
 
     glBindFramebuffer(GL_FRAMEBUFFER,frameBufferTexture);
@@ -328,6 +329,8 @@ unsigned char* GPU::lOfGuusImage(int width,  int height,  int channels, unsigned
     shaders[IMG_LOFGAUS]->setInt("textMat", 1);
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_1D, textureIdKernel);
+
+    shaders[IMG_LOFGAUS]->setVec2("kernel",kernel);
 
     plane->Draw();
 
@@ -473,27 +476,64 @@ bool GPU::createFrameBuffer( int width,  int height){
 
 void GPU::createTexture1D(){
 
-	//glGenTextures(1, &textureIdKernel);
-	// Loads the texture
-	int textureWidth, textureHeight, numberOfChannels;
+	// Creates the texture on GPU
+	glGenTextures(1, &textureIdKernel);
 	// Gets the texture channel format
-	
+
 	// Binds the texture
 	glBindTexture(GL_TEXTURE_1D, textureIdKernel);
 	// Creates the texture
-	
+
 	// Set the filtering parameters
 	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexImage1D(GL_TEXTURE_1D, 0, GL_R32F, 49, 0, GL_RED, GL_FLOAT, &vectorKernel[0]);
+	glTexImage1D(GL_TEXTURE_1D, 0, GL_R32F, 49, 0, GL_RED, GL_FLOAT, vectorKernel.data());
 	glBindTexture(GL_TEXTURE_1D, 0);
 
 }
 
-void GPU::fillVectorOfKernell(){
+void GPU::resetKernet(){
 
     vectorKernel.clear();
-    vectorKernel.assign(49, 0.6f);
+    vectorKernel.assign(49, 0.0f);
+}
+
+void GPU::LoGKernel(float x, float y, float sigma)
+{
+	//init
+	resetKernet();
+	int minX, maxX;
+	int minY, maxY;
+	int mayor = x < y ? y : x;
+
+	minX = (-x / 2);
+	minX =minX + (int(x) % 2 == 0 ? 1 : 0);
+	maxX = (x / 2);
+
+	minY = (-y / 2);
+	minY = minY + (int(y) % 2 == 0 ? 1 : 0);
+	maxY = (y / 2);
+
+	//calculate
+	int k = 0;
+	for (int i = maxX; i >= minX; i--)
+	{
+		for (int j = maxY; j >= minY; j--)
+		{
+			vectorKernel[k] = LoG(i, j, sigma);
+		
+			k++;
+		}
+	}
+
+}
+
+float GPU::LoG(float x, float y, float sigma)
+{
+	float sigma4 = -(1 / (PI * sigma * sigma * sigma * sigma));
+	float sigma2 = ((x * x + y * y) / (2 * sigma * sigma));
+	float expon = exp(-sigma2);
+	return sigma4 * (1 - sigma2) * expon;
 }
