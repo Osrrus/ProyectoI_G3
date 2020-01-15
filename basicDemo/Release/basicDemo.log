@@ -1,23 +1,4 @@
-﻿  mainGPU.cpp
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(509,12): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(511,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(513,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(515,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(517,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(525,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(525,26): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Gpu\mainGPU.cpp(535,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  Obj.cpp
-  loader.cpp
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): warning C4473: "fscanf_s": no se pasaron suficientes argumentos para la cadena de formato
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : los marcadores de posición y sus parámetros esperan 2 argumentos variádicos, pero se proporcionaron 1
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : el argumento variádico 2 que falta es requerido por la cadena de formato '%s'
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(75,22): message : este argumento se utiliza como un tamaño de búfer
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(119,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(125,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\components\loader.cpp(130,20): warning C4018: '<': no coinciden signed/unsigned
-  userinterface.cpp
-  main.cpp
+﻿  main.cpp
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Cpu\mainCPU.h(66,65): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -119,7 +100,8 @@ C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\Api\Apip
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(422,22): warning C4018: '<': no coinciden signed/unsigned
 C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\basicDemo\main.cpp(477,22): warning C4018: '<': no coinciden signed/unsigned
   Generando código
-  Previous IPDB not found, fall back to full compilation.
-  All 885 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  8 of 903 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    10 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   basicDemo.vcxproj -> C:\Users\Alejandro\Desktop\Proyectos\Uni\Graficas 3\Proyecto1\Release\basicDemo.exe

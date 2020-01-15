@@ -1,11 +1,11 @@
 #pragma once
 
-//#define STB_IMAGE_WRITE_IMPLEMENTATION
+#define STB_IMAGE_WRITE_IMPLEMENTATION
 
 #include "../define.h"
 #include "Gpu/mainGPU.h"
 #include "Cpu/mainCPU.h"
-//#include "../include/stb_image_write.h"
+#include "../include/stb_image_write.h"
 
 GPU *mainGpu;
 std::chrono::time_point<std::chrono::system_clock> start, end;
@@ -184,5 +184,6 @@ void saveImage(const char * path, int width, int height){
 
     unsigned char* imageData = (unsigned char*)malloc((int)(width * height * (3)));
     glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, imageData);
-   // stbi_write_jpg(path, width, height, 3, imageData, width * 3);
+    stbi_flip_vertically_on_write(true);
+    stbi_write_jpg(path, width, height, 3, imageData, width * 3);
 }

@@ -41,10 +41,9 @@ CUserInterface::CUserInterface()
 
 	TwAddSeparator(mUserInterface, "", NULL);
 	TwAddButton(mUserInterface, "Load", CallbackLoad, NULL, NULL);
-
+	TwAddButton(mUserInterface, "Save", CallbackSave, NULL, NULL);
+	
 	TwAddSeparator(mUserInterface, "", NULL);
-	TwAddButton(mUserInterface, "Save", CallbackLoad, NULL, NULL);
-
 	TwEnumVal DeployType[] = { {NORMAL, "Normal"},{ NEGATIVE, "Negative" },{ GRAY_SCALE, "Gray Scale" },{ BLACK_WITHE, "Black And White" },
     { GAUS, "Laplace Gaus" },{ AVG, "Averague" },{SOBEL, "Sobel"},{PREWITT, "Prewitt"},{ROBERTS, "Roberts"},{TOON, "Toon"},{MEDIANA, "Mediana"}};
 	TwType DeployTwType = TwDefineEnum("Fliter", DeployType, 11);

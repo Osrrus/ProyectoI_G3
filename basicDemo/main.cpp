@@ -551,8 +551,10 @@ void beginLoad(string path) {
 
 void beginSave(){
 
-    saveImage("Image.jpg",textureWidth,textureWidth);
-    
+    userInterFace->hide();
+    render();
+    saveImage("Image.jpg",windowWidth,windowHeight);
+    userInterFace->show();
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
